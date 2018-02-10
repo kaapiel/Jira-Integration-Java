@@ -19,6 +19,7 @@ public class Constants {
 		public static String AVATAR = "avatar/";
 		public static String COMPONENT = "component/";
 		public static String FIELD = "field/";
+		public static String META = "createmeta/";
 	}
 	
 }

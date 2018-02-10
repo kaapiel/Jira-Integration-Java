@@ -52,4 +52,18 @@ public class HttpHelper {
 		return response.toString();
 	}
 	
+	public boolean tryLogin() throws IOException {
+		
+		URL url = new URL(Constants.Links.API_HOST + Constants.Fields.ISSUE + Constants.Fields.META);
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Authorization", "Basic "+ new BuildAuthBase64().getAuthBase64());
+		
+		if (conn.getResponseCode() == HttpURLConnection.HTTP_UNAUTHORIZED) {
+			return false;
+		} 
+		return true;
+		
+	}
+	
 }
