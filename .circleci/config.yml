@@ -47,9 +47,6 @@ jobs:
       - run:
           name: Analyze on SonarCloud
           command: mvn verify sonar:sonar
-      - slack/notify:
-        message: "SK8-Real-Gyro-Unity has checked out the code from git"
-        color: "#42e2f4" # Optional: Assign custom colors for each notification
 workflows:
   main:
     jobs:
