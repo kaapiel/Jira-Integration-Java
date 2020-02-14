@@ -44,7 +44,6 @@ jobs:
           command: mvn verify sonar:sonar
       - slack/notify:
         message: "SK8-Real-Gyro-Unity has checked out the code from git"
-        webhook: "https://hooks.slack.com/services/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"
 workflows:
   main:
     jobs:
