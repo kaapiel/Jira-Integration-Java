@@ -21,6 +21,11 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
 
     steps:
+    - run: 
+          name: Setup custom environment variables
+          command: |
+            echo 'export SLACK_WEBHOOK="https://hooks.slack.com/services/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"' >> $BASH_ENV
+    
       - checkout
 
       # Download and cache dependencies
@@ -44,6 +49,7 @@ jobs:
           command: mvn verify sonar:sonar
       - slack/notify:
         message: "SK8-Real-Gyro-Unity has checked out the code from git"
+        color: "#42e2f4" # Optional: Assign custom colors for each notification
 workflows:
   main:
     jobs:
